@@ -1,2 +1,4 @@
 # crypto-info
-Create list of coins and exchanges using CoinLore API
+Using CoinLore API
+  -  Create Pandas dataframe
+  -  Save to CSV
