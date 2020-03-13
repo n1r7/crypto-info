@@ -31,7 +31,7 @@ for i in range(num_reqs):
     currencies = currencies.append(df_temp, ignore_index=True, sort=False)
 
 currencies['type']='currency'
-currencies.to_csv(r'/Users/USER/Desktop/crypto_currencies.csv') # Save to CSV
+currencies.to_csv(r'crypto_currencies.csv') # Save to CSV
 
 
 # CRYPTO EXCHANGES
@@ -39,7 +39,7 @@ currencies.to_csv(r'/Users/USER/Desktop/crypto_currencies.csv') # Save to CSV
 ex_req = requests.get('https://api.coinlore.com/api/exchanges/').json()
 exchanges = pd.DataFrame(ex_req)
 exchanges['type']='exchange'
-exchanges.to_csv(r'/Users/USER/Desktop/crypto_exchanges.csv') # Save to CSV
+exchanges.to_csv(r'crypto_exchanges.csv') # Save to CSV
 
 
 # EXTRACT NAME
@@ -48,4 +48,4 @@ curr_clean = currencies[['type','name','nameid','symbol']]
 exch_clean = exchanges[['type','name','country','url']]
 
 crypto_combined = pd.concat([exch_clean, curr_clean], axis=0, ignore_index=True, sort=True)
-crypto_combined.to_csv(r'/Users/USER/Desktop/crypto_combined.csv') # Save to CSV
+crypto_combined.to_csv(r'crypto_combined.csv') # Save to CSV
